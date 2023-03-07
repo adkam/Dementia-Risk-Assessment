@@ -1,2 +1,56 @@
-<button (click)="createAssessment()">Click Me</button>
-<router-outlet></router-outlet>
+<div class="gradient">
+  <div class="form-container">
+    <h2 class="title">Dementia Risk Assessment</h2>
+    <form [formGroup]="formData" (ngSubmit)="createAssessment(formData.value)">
+      <div class="form">
+        <div class="form-group">
+          <input
+            type="number"
+            name="age"
+            placeholder="Age"
+            formControlName="age"
+          />
+          <input
+            type="text"
+            name="sex"
+            placeholder="Sex"
+            formControlName="sex"
+          />
+          <input
+            type="text"
+            name="ceradScore"
+            placeholder="CERAD Score"
+            formControlName="ceradScore"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="gad1"
+            placeholder="GAD1"
+            formControlName="gad1"
+          />
+          <input
+            type="number"
+            name="gad2"
+            placeholder="GAD2"
+            formControlName="gad2"
+          />
+          <input
+            type="number"
+            name="gfap"
+            placeholder="GFAP"
+            formControlName="gfap"
+          />
+        </div>
+      </div>
+      <input class="submit" type="submit" value="Calculate" />
+    </form>
+  </div>
+</div>
+<footer>
+  <p class="footer-text">
+    A University of Michigan MADS Capstone Project by Esa Amin, Ashish Kamath,
+    and Fangzhou Xu
+  </p>
+</footer>

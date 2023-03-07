@@ -1,0 +1,86 @@
+.gradient {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(270deg, #0e4356, #31a1af);
+  background-size: 400% 400%;
+
+  animation: Gradient 44s ease infinite;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  max-width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  color: #0e4356;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-group {
+  width: 200px;
+}
+
+input {
+  margin: 10px;
+  border: 2px solid #0e4356;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: "Montserrat";
+}
+
+.submit {
+  background: #0e4356;
+  color: white;
+  cursor: pointer;
+  margin: 10px auto;
+  display: block;
+}
+
+.footer-text {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: white;
+  padding: 10px;
+  border-radius: 0px;
+  font-size: 10px;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes Gradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
