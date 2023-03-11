@@ -1,4 +1,18 @@
-# Dementia Risk Assessment
+# Dementia Risk Assessment (Client-Side)
+
+## Setup - Installing Angular
+
+1. Ensure Node.js version is 12 or later. (includes NPM 6)
+   - To check your version, run `node -v` in a terminal/console window.
+   - To get Node.js, go to nodejs.org.
+2. Install the Angular CLI
+   - `npm i -g @angular/cli`
+
+## Setup - Installing website dependencies
+
+1. Run `npm install` to install any dependencies that the website relies on
+2. Upon completion, run `ng serve` and navigate to `http://localhost:4200/` in your browser.
+3. You should now be able to view the website.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 

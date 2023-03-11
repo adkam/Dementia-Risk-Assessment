@@ -1,7 +1,11 @@
 <div class="gradient">
-  <div class="form-container">
+  <div class="assessment-container">
     <h2 class="title">Dementia Risk Assessment</h2>
-    <form [formGroup]="formData" (ngSubmit)="createAssessment(formData.value)">
+    <form
+      class="form-container"
+      [formGroup]="formData"
+      (ngSubmit)="createAssessment(formData.value)"
+    >
       <div class="form">
         <div class="form-group">
           <input
@@ -45,6 +49,7 @@
         </div>
       </div>
       <input class="submit" type="submit" value="Calculate" />
+      {{ returnedData }}
     </form>
   </div>
 </div>

@@ -8,21 +8,28 @@
   animation: Gradient 44s ease infinite;
 }
 
-.form-container {
-  background: white;
-  padding: 20px;
-  max-width: 700px;
+.assessment-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 700px;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
   border-radius: 6px;
   color: #0e4356;
 }
 
 .title {
   text-align: center;
-  margin-bottom: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  color: #0e4356;
+  margin-bottom: 20px;
 }
 
 .form {

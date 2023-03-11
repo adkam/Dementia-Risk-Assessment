@@ -10,5 +10,5 @@ CORS(app)
 @app.route('/assessment', methods=['POST'])
 def create_assessment():
     props = request.get_json()
-    true = True
-    return jsonify(true), 201
+    response = 'I hope this works'
+    return jsonify(response), 200

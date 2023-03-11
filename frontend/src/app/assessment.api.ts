@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, firstValueFrom, map, Observable, of } from 'rxjs';
 import { API_URL } from './env';
 
 @Injectable({
@@ -11,10 +11,9 @@ export class AssessmentApi {
 
   // POST
   createAssessment() {
-    this.http
-      .post(`${API_URL}/assessment`, { title: 'here' })
-      .subscribe((assessment) => {
-        console.log(assessment);
-      });
+    const request$ = this.http.post(`${API_URL}/assessment`, {
+      title: 'testing',
+    });
+    return firstValueFrom(request$);
   }
 }

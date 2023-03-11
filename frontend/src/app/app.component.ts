@@ -10,6 +10,7 @@ import { AssessmentApi } from './assessment.api';
 export class AppComponent implements OnInit {
   title = 'Dementia Risk Assessment';
   formData: any;
+  returnedData: any;
 
   constructor(private api: AssessmentApi) {}
 
@@ -24,8 +25,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  createAssessment(formData: any) {
-    console.log(formData);
-    // this.api.createAssessment();
+  async createAssessment(formData: any) {
+    this.returnedData = await this.api.createAssessment();
   }
 }
