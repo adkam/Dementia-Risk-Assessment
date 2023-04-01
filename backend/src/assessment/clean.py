@@ -4,7 +4,6 @@ def clean(input_file):
     df = pd.read_csv(input_file)
     return df
 
-
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()

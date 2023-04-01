@@ -1,14 +1,13 @@
-# coding=utf-8
-
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask_restful import Api
 from flask_cors import CORS
+from assessment.api import Assessment
 
-# creating the Flask application
 app = Flask(__name__)
+api = Api(app)
 CORS(app)
 
-@app.route('/assessment', methods=['POST'])
-def create_assessment():
-    props = request.get_json()
-    response = 'I hope this works'
-    return jsonify(response), 200
+api.add_resource(Assessment, '/assessment')
+
+if __name__ == '__main__':
+    app.run(debug=True)

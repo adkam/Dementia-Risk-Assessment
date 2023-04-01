@@ -11,7 +11,7 @@ export class AssessmentApi {
 
   createAssessment() {
     const request$ = this.http.post(`${API_URL}/assessment`, {
-      title: 'testing',
+      age: 18,
     });
     return firstValueFrom(request$);
   }
