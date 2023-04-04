@@ -6,6 +6,7 @@ from assessment.api import Assessment
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 api.add_resource(Assessment, '/assessment')
 
