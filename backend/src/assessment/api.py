@@ -7,5 +7,5 @@ class Assessment(Resource):
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('age')
-        args = parser.parse_args()
+        args = parser.parse_args() 
         return True, 201
