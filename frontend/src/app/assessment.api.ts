@@ -14,9 +14,13 @@ export class AssessmentApi {
   constructor(private http: HttpClient) {}
 
   createAssessment() {
-    const request$ = this.http.post(`${API_URL}/assessment`, {
-      age: 18,
-    });
+    const request$ = this.http.post(
+      `${API_URL}/assessment`,
+      {
+        age: 18,
+      },
+      { responseType: 'text' }
+    );
     return firstValueFrom(request$);
   }
 }
