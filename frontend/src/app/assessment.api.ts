@@ -14,19 +14,9 @@ export class AssessmentApi {
   constructor(private http: HttpClient) {}
 
   createAssessment() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      }),
-    };
-    const request$ = this.http.post(
-      `${API_URL}/assessment`,
-      {
-        age: 18,
-      },
-      httpOptions
-    );
+    const request$ = this.http.post(`${API_URL}/assessment`, {
+      age: 18,
+    });
     return firstValueFrom(request$);
   }
 }

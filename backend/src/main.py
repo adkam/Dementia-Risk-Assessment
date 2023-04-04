@@ -7,15 +7,8 @@ api = Api(app)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', '*')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  return response
-
 class Assessment(Resource): 
-    @cross_origin(origin='localhost',headers=['Content-Type','Authorization'])
+    @cross_origin()
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('age')
