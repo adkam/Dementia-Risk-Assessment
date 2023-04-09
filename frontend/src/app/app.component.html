@@ -1,6 +1,15 @@
 <div class="gradient">
   <div class="assessment-container">
-    <h2 class="title">Dementia Risk Assessment</h2>
+    <h2 class="title">
+      Dementia Risk Assessment
+      <button class="info-button" (click)="openDialog()">
+        <svg-icon
+          class="icon"
+          src="assets/icons/info-circle.svg"
+          [svgStyle]="{ 'width.px': 25 }"
+        ></svg-icon>
+      </button>
+    </h2>
     <form
       class="form-container"
       [formGroup]="formData"

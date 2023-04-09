@@ -28,4 +28,6 @@ export class AppComponent implements OnInit {
   async createAssessment(formData: any) {
     this.returnedData = await this.api.createAssessment();
   }
+
+  openDialog() {}
 }

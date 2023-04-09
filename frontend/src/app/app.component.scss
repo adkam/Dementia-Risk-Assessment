@@ -30,6 +30,23 @@
   border-radius: 6px;
   color: #0e4356;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-button {
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  display: block;
 }
 
 .form {

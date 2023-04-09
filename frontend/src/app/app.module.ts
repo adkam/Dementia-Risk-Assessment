@@ -5,10 +5,20 @@ import { AppComponent } from './app.component';
 import { AssessmentApi } from './assessment.api';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  declarations: [AppComponent, ModalComponent],
+  imports: [
+    AngularSvgIconModule.forRoot(),
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+  ],
   providers: [AssessmentApi],
   bootstrap: [AppComponent],
 })
