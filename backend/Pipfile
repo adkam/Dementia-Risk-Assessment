@@ -8,6 +8,8 @@ flask = "*"
 flask-cors = "*"
 flask-restful = "*"
 gunicorn = "*"
+pandas = "*"
+scikit-learn = "*"
 
 [dev-packages]
 

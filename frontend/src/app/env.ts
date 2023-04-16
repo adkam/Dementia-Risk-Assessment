@@ -1,2 +1,3 @@
 // Change to https://dementia-risk-assessment.herokuapp.com for production
-export const API_URL = 'http://localhost:5000';
+// Change to http://localhost:5000 for local development
+export const API_URL = 'https://dementia-risk-assessment.herokuapp.com';

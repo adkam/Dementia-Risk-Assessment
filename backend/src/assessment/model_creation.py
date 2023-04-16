@@ -5,7 +5,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import StratifiedKFold, RepeatedStratifiedKFold, GridSearchCV
 
 def read_file(file, path = os.path.join(sys.path[0],'assessment', 'data'), extra = ''):
-    path = path + '/' + extra
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(BASE_DIR,'assessment', 'data') + '/' + extra
     df = pd.read_csv(path + file)
     return df
 

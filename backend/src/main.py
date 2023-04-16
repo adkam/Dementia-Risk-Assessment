@@ -5,11 +5,11 @@ from flask import Flask
 from flask_restful import Api,Resource,reqparse
 from flask_cors import CORS, cross_origin
 sys.path.append(os.path.join(sys.path[0],'assessment'))
-from model_creation import create_model
+from .assessment.model_creation import create_model
 
 app = Flask(__name__)
 api = Api(app)
-CORS(app)
+CORS(app, resources={r"*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 class Assessment(Resource): 
@@ -24,15 +24,19 @@ class Assessment(Resource):
         parser.add_argument('tau2')
         parser.add_argument('tdp')
         args = parser.parse_args()
-        with (open(os.path.join(sys.path[0],'assessment', 'final_model.pkl'), "rb")) as f:
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with (open(os.path.join(BASE_DIR,'src', 'assessment', 'final_model.pkl'), "rb")) as f: 
             model = pickle.load(f)
             prediction = model.predict([[args['gfap'], args['at8'], args['at8Ffp'], args['alphaBeta'], args['tau2'], args['tdp'], args['tau']]])
             dementia_analysis = "at_risk" if prediction[0] == 1 else "not_at_risk"
             return dementia_analysis, 201
 
-final_model = create_model()
-with open(os.path.join(sys.path[0],'assessment', 'final_model.pkl'), 'wb+') as out:
-    pickle.dump(final_model, out)
+# If pickle does not exist, remove comment to create pickle
+
+# final_model = create_model()
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# with open(os.path.join(BASE_DIR, 'assessment', 'final_model.pkl'), 'wb+') as out:
+#     pickle.dump(final_model, out)
 
 api.add_resource(Assessment, '/assessment')
 
