@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AssessmentApi } from './assessment.api';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent implements OnInit {
   returnedData: any;
   showForm = true;
 
-  constructor(private api: AssessmentApi) {}
+  constructor(private api: AssessmentApi, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.formData = new FormGroup({
@@ -30,6 +32,10 @@ export class AppComponent implements OnInit {
   async createAssessment(formData: any) {
     this.showForm = false;
     this.returnedData = await this.api.createAssessment(formData);
+  }
+
+  openDialog() {
+    this.dialog.open(ModalComponent);
   }
 
   openForm() {

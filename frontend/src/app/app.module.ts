@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ModalComponent } from './modal/modal.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],

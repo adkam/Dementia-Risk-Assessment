@@ -13,11 +13,12 @@
           class="icon"
           src="assets/icons/info-circle.svg"
           [svgStyle]="{ 'width.px': 25 }"
+          (click)="openDialog()"
         ></svg-icon>
       </button>
     </h2>
     <form
-      *ngIf="showForm"
+      *ngIf="showForm || !returnedData"
       class="form-container"
       [formGroup]="formData"
       (ngSubmit)="createAssessment(formData.value)"
