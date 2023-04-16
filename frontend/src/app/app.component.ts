@@ -11,23 +11,28 @@ export class AppComponent implements OnInit {
   title = 'Dementia Risk Assessment';
   formData: any;
   returnedData: any;
+  showForm = true;
 
   constructor(private api: AssessmentApi) {}
 
   ngOnInit(): void {
     this.formData = new FormGroup({
-      age: new FormControl(''),
-      sex: new FormControl(''),
-      ceradScore: new FormControl(''),
-      gad1: new FormControl(''),
-      gad2: new FormControl(''),
-      gfap: new FormControl(''),
+      tau: new FormControl(0),
+      gfap: new FormControl(0),
+      at8: new FormControl(0),
+      at8Ffp: new FormControl(0),
+      alphaBeta: new FormControl(0),
+      tau2: new FormControl(0),
+      tdp: new FormControl(0),
     });
   }
 
   async createAssessment(formData: any) {
-    this.returnedData = await this.api.createAssessment();
+    this.showForm = false;
+    this.returnedData = await this.api.createAssessment(formData);
   }
 
-  openDialog() {}
+  openForm() {
+    this.showForm = true;
+  }
 }

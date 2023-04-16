@@ -13,14 +13,10 @@ import { API_URL } from './env';
 export class AssessmentApi {
   constructor(private http: HttpClient) {}
 
-  createAssessment() {
-    const request$ = this.http.post(
-      `${API_URL}/assessment`,
-      {
-        age: 18,
-      },
-      { responseType: 'text' }
-    );
+  createAssessment(formData: any) {
+    const request$ = this.http.post(`${API_URL}/assessment`, formData, {
+      responseType: 'text',
+    });
     return firstValueFrom(request$);
   }
 }

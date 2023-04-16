@@ -8,7 +8,7 @@
   <div class="assessment-container">
     <h2 class="title">
       Dementia Risk Assessment
-      <button class="info-button" (click)="openDialog()">
+      <button class="info-button">
         <svg-icon
           class="icon"
           src="assets/icons/info-circle.svg"
@@ -17,54 +17,106 @@
       </button>
     </h2>
     <form
+      *ngIf="showForm"
       class="form-container"
       [formGroup]="formData"
       (ngSubmit)="createAssessment(formData.value)"
     >
       <div class="form">
         <div class="form-group">
+          <label for="tau">Tau NG:</label>
           <input
+            class="form-value"
             type="number"
-            name="age"
-            placeholder="Age"
-            formControlName="age"
-          />
-          <input
-            type="text"
-            name="sex"
-            placeholder="Sex"
-            formControlName="sex"
-          />
-          <input
-            type="text"
-            name="ceradScore"
-            placeholder="CERAD Score"
-            formControlName="ceradScore"
+            min="0"
+            max="1.0"
+            step="0.01"
+            id="tau"
+            formControlName="tau"
           />
         </div>
-        <div class="form-group">
-          <input
-            type="number"
-            name="gad1"
-            placeholder="GAD1"
-            formControlName="gad1"
-          />
-          <input
-            type="number"
-            name="gad2"
-            placeholder="GAD2"
-            formControlName="gad2"
-          />
-          <input
-            type="number"
-            name="gfap"
-            placeholder="GFAP"
-            formControlName="gfap"
-          />
-        </div>
+        <label for="gfap">GFAP FFP:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="gfap"
+          formControlName="gfap"
+        />
+        <label for="at8">AT8:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="at8"
+          formControlName="at8"
+        />
+        <label for="at8Ffp">AT8 FFP:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="at8Ffp"
+          formControlName="at8Ffp"
+        />
+        <label for="alphaBeta">Aβ FFP:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="alphaBeta"
+          formControlName="alphaBeta"
+        />
+        <label for="tau2">Tau2 FFP:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="tau2"
+          formControlName="tau2"
+        />
+        <label for="tdp">TDP43 FFP:</label>
+        <input
+          class="form-value"
+          type="number"
+          min="0"
+          max="1.0"
+          step="0.01"
+          id="tdp"
+          formControlName="tdp"
+        />
       </div>
       <input class="submit" type="submit" value="Calculate" />
-      {{ returnedData }}
     </form>
+    <ng-container *ngIf="!showForm && returnedData">
+      <div class="results-container">
+        <h2 class="results">
+          According to our calculations, there is a
+          <ng-container *ngIf="returnedData === 'at_risk'"
+            >substantial risk of dementia</ng-container
+          >
+          <ng-container *ngIf="returnedData === 'not_at_risk'"
+            >limited risk of dementia</ng-container
+          >
+          associated with the submitted metrics.
+        </h2>
+        <h2 class="results">
+          Please click the information button above for more information.
+        </h2>
+        <button class="submit button-reassess" (click)="openForm()">
+          Reassess
+        </button>
+      </div>
+    </ng-container>
   </div>
 </div>
