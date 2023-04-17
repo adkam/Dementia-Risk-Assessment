@@ -10,6 +10,8 @@ flask-restful = "*"
 gunicorn = "*"
 pandas = "*"
 scikit-learn = "*"
+statsmodels = "*"
+pandas-profiling = "*"
 
 [dev-packages]
 
